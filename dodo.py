@@ -1,9 +1,12 @@
-def task_my_task():
-    return{
-        "actions":[
-            "echo parametized passt > %(targets)s"
+#  aim -> $ 7z a huge.compressed.7z huge.dat
+
+def task_compress():
+
+    return {
+        "actions": [
+             "7z a %(targets)s %(dependencies)s",
         ],
-        "targets":['my_task.txt'],
-        "clean":True
-        
+        "file_dep": ["huge.dat"],
+        "targets": ["huge.compressed.7z"],
+        "clean": True
     }
